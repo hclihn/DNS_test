@@ -25,6 +25,9 @@ func main() {
     },
   }
   start := time.Now()
+  // ALternatively, we can use net.LookupHost with the default resolver.
+  // net.LookupAddr() will return the name of the IP addres using the DNS PTR query.
+  // There are other DNS record query methods available in net.
   ip, err := rv.LookupHost(context.Background(), target)
   log.Printf("Dialer took %v", time.Since(start))
   if err != nil {
